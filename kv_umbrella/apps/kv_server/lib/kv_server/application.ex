@@ -10,6 +10,7 @@ defmodule KVServer.Application do
     children = [
       # Starts a worker by calling: KVServer.Worker.start_link(arg)
       # {KVServer.Worker, arg}
+      {Task, fn -> KVServer.accept(5000) end}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
